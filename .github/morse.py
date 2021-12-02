@@ -30,7 +30,14 @@ def decode(m,file):
                 output=output+str(m[x])
         output=output+' '
     print(output)
-
+def user(m):
+    x=input("give name of text file you would like to decode").lower()
+    decode(m,x)
+    y=input("would you like to try again?").strip().lower()
+    if y == 'yes':
+        user(m)
+    else:
+        print("thank you for decoding!")
 
 def main():
     # morse1=read_file('morse1.txt')
@@ -43,7 +50,5 @@ def main():
     # print(morsecode)
     morse_dict=make_dict(morsecode)
     # print(morse_dict)
-    decode(morse_dict,'morse1.txt')
-    decode(morse_dict, 'morse2.txt')
-    decode(morse_dict, 'morse3.txt')
+    user(morse_dict)
 main()
